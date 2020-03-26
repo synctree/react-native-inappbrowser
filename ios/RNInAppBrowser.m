@@ -282,20 +282,6 @@ RCT_EXPORT_METHOD(isAvailable:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromi
   return YES;
 }
 
-/**
- * Called when the user dismisses the SFVC without logging in.
- */
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
-{
-  redirectResolve(@{
-    @"type": @"cancel",
-  });
-  [self flowDidFinish];
-  if (!animated) {
-    [self dismissWithoutAnimation:controller];
-  }
-}
-
 -(void)flowDidFinish
 {
   safariVC = nil;
